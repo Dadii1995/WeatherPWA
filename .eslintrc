@@ -1,0 +1,36 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["@selleo/react", "prettier/react"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-debugger": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": ["info", "error"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "rules": {
+        "react/display-name": 0
+      }
+    }
+  ],
+  "globals": {
+    "after": true,
+    "before": true,
+    "clients": true,
+    "cy": true,
+    "Cypress": true,
+    "skipWaiting": true,
+    "mockApolloClient": true
+  }
+}

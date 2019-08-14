@@ -5,6 +5,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 import WeatherProvider from './contexts/WeatherContext'
 
+import './assets/styles/index.css'
 
 ReactDOM.render(
   <WeatherProvider>

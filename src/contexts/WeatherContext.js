@@ -29,7 +29,7 @@ class WeatherProvider extends Component {
   render() {
     const { weather } = this.state
     return (
-      <WeatherContext.Provider value={{ weather, getWeather: this.getWeather }}>
+      <WeatherContext.Provider value={{ weather, getWeather: this.getWeather, isDay: Boolean(weather.current.is_day) }}>
         {this.props.children}
       </WeatherContext.Provider>
     )

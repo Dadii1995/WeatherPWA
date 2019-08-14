@@ -3,17 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "@selleo/eslint-config-react": "^1.0.0",
     "axios": "^0.19.0",
+    "classnames": "^2.2.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.0"
+    "react-scripts": "3.1.0",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass --include-path scss src/assets/styles/index.scss src/assets/styles/index.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,6 +40,12 @@
   },
   "devDependencies": {
     "dotenv": "^8.0.0",
-    "eslint": "^6.1.0"
+    "eslint": "^6.1.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.1"
   }
 }

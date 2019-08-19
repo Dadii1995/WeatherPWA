@@ -16,6 +16,8 @@ $sunset-background-gradient: linear-gradient(90deg, $sunset-background-start-col
 
 $nth-table-row-background: #F9F9F9;
 
+$max-weather-icon-height: 32px;
+
 .weather {
   display: flex;
   flex-direction: column;
@@ -24,10 +26,12 @@ $nth-table-row-background: #F9F9F9;
   width: 100vw;
 
   &__current {
+    background-position: right top;
+    background-repeat: no-repeat;
+    flex-grow: 1;
     padding-bottom: $m-md;
     padding-top: $m-md;
     text-align: center !important;
-    flex-grow: 1;
 
     &__temperature {
       font-size: $font-size-xxl;
@@ -59,7 +63,6 @@ $nth-table-row-background: #F9F9F9;
     }
   }
 
-
   &__slider {
     background: $color-white;
     border-top-left-radius: $border-radius-lg*1.5;
@@ -70,17 +73,10 @@ $nth-table-row-background: #F9F9F9;
     padding: $m-md;
     width: 100%;
 
-    &__navigation {
-      display: flex;
-      justify-content: space-between;
-    }
-
     &--md {
       display: none;
     }
-
   }
-
 
   &--day {
     background: $background-day-start-color;
@@ -89,8 +85,6 @@ $nth-table-row-background: #F9F9F9;
 
     .weather__current {
       background-image: $background-day-image;
-      background-position: right top;
-      background-repeat: no-repeat;
     }
   }
 
@@ -101,8 +95,6 @@ $nth-table-row-background: #F9F9F9;
 
     .weather__current {
       background-image: $background-night-image;
-      background-position: right top;
-      background-repeat: no-repeat;
     }
   }
 }
@@ -130,10 +122,9 @@ $nth-table-row-background: #F9F9F9;
 
       img {
         margin: 0 auto;
-        max-height: 32px;
+        max-height: $max-weather-icon-height;
       }
     }
-
 
     &__min-temp {
       color: $color-gray-dark;
@@ -144,7 +135,6 @@ $nth-table-row-background: #F9F9F9;
       background: $nth-table-row-background;
     }
   }
-
 }
 
 .weather-details {
@@ -223,7 +213,7 @@ $nth-table-row-background: #F9F9F9;
     flex-direction: row;
 
     &__current {
-      flex-basis: 80%;
+      flex-basis: 150%;
     }
 
     &__slider {
@@ -231,10 +221,8 @@ $nth-table-row-background: #F9F9F9;
       border-top-right-radius: 0;
 
       &--md {
-        display: flex;
         flex-direction: column;
         height: 100%;
-        justify-content: space-evenly;
       }
 
     }

@@ -6,19 +6,10 @@ import WeatherDetailsInfo from './WeatherDetailInfo'
 const CurrentWeatherDetails = props => {
   const {
     weather: {
-      current: {
-        condition: { text },
-        wind_kph,
-        pressure_mb,
-        cloud,
-        feelslike_c,
-        uv,
-        humidity,
-      },
+      current: { wind_kph, pressure_mb, cloud, feelslike_c, uv, humidity },
       forecast: {
         forecastday: [
           {
-            day: { maxtemp_c, mintemp_c },
             astro: { sunrise, sunset },
           },
         ],
@@ -28,9 +19,6 @@ const CurrentWeatherDetails = props => {
   return (
     <div className="weather-details">
       <h1>Details</h1>
-      {/*<p>*/}
-      {/*  Today: {text}. The high will be {maxtemp_c}°C, the low will be {mintemp_c}°C.*/}
-      {/*</p>*/}
       <div className="weather-details__sunrise-sunset">
         <div className="weather-details__sunrise-sunset__hour">
           <img alt="sunrise icon" height="24px" src="/images/sunrise.png" />

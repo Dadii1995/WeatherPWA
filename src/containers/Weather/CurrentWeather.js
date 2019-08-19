@@ -3,10 +3,6 @@ import NextHoursWeather from './NextHoursWeather'
 import withWeather from '../../hocs/withWeather'
 
 class CurrentWeather extends Component {
-  componentDidMount() {
-    this.props.getWeather('bielsko-biala')
-    // this.props.getWeather('california')
-  }
 
   render() {
     const {

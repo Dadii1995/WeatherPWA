@@ -330,7 +330,8 @@ template {
   .weather__current {
     padding-bottom: 15px;
     padding-top: 15px;
-    text-align: center !important; }
+    text-align: center !important;
+    flex-grow: 1; }
     .weather__current__temperature {
       font-size: 72px;
       font-weight: 400;
@@ -362,6 +363,8 @@ template {
     .weather__slider__navigation {
       display: flex;
       justify-content: space-between; }
+    .weather__slider--md {
+      display: none; }
   .weather--day {
     background: #FDC6C6;
     background: linear-gradient(180deg, #FDC6C6 0%, #E6D3DF 60%);
@@ -431,3 +434,43 @@ template {
   .weather-details-info__value {
     font-size: 20px;
     margin-bottom: 0; }
+
+@media (min-width: 768px) {
+  .weather__current {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+    justify-content: center; }
+  .weather__slider--mobile {
+    display: none; }
+  .weather__slider--md {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    height: auto;
+    justify-content: space-evenly; } }
+
+@media (min-width: 992px) {
+  .weather {
+    align-items: center;
+    flex-direction: row; }
+    .weather__current {
+      flex-basis: 80%; }
+    .weather__slider {
+      border-bottom-left-radius: 45px;
+      border-top-right-radius: 0; }
+      .weather__slider--md {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly; }
+  .weather-details,
+  .weather-next-week {
+    width: 100%; } }
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%; }

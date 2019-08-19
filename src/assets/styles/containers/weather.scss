@@ -27,6 +27,7 @@ $nth-table-row-background: #F9F9F9;
     padding-bottom: $m-md;
     padding-top: $m-md;
     text-align: center !important;
+    flex-grow: 1;
 
     &__temperature {
       font-size: $font-size-xxl;
@@ -73,6 +74,11 @@ $nth-table-row-background: #F9F9F9;
       display: flex;
       justify-content: space-between;
     }
+
+    &--md {
+      display: none;
+    }
+
   }
 
 
@@ -184,5 +190,58 @@ $nth-table-row-background: #F9F9F9;
     font-size: $font-size-lg;
     margin-bottom: 0;
 
+  }
+}
+@include media-breakpoint-up(md) {
+  .weather {
+    &__current {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 3;
+      justify-content: center;
+    }
+
+    &__slider {
+      &--mobile {
+        display: none;
+      }
+
+      &--md {
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+        height: auto;
+        justify-content: space-evenly;
+      }
+
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .weather {
+    align-items: center;
+    flex-direction: row;
+
+    &__current {
+      flex-basis: 80%;
+    }
+
+    &__slider {
+      border-bottom-left-radius: $border-radius-lg*1.5;
+      border-top-right-radius: 0;
+
+      &--md {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly;
+      }
+
+    }
+  }
+
+  .weather-details,
+  .weather-next-week {
+    width: 100%;
   }
 }

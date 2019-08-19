@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 const DayWeather = props => {
@@ -8,9 +8,9 @@ const DayWeather = props => {
     <tr className="weather-next-week__day">
       <td className="weather-next-week__day__date">{date}</td>
       <td className="weather-next-week__day__icon">
-        <img src={icon} />
+        <img alt="weather-icon" src={icon} />
       </td>
-      <td  className="weather-next-week__day__max-temp">{maxTemp}°C</td>
+      <td className="weather-next-week__day__max-temp">{maxTemp}°C</td>
       <td className="weather-next-week__day__min-temp">{minTemp}°C</td>
     </tr>
   )

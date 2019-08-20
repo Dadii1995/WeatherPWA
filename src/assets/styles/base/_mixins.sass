@@ -42,3 +42,12 @@
 =media-touch-devices
   @media (any-pointer: coarse)
     @content
+
+=modal-section($top-or-bottom, $color)
+  background: darken($color, 10%)
+  display: flex
+  justify-content: space-evenly
+  padding: $m-sm
+  border:
+    #{$top-or-bottom}-left-radius: $border-radius-base
+    #{$top-or-bottom}-right-radius: $border-radius-base

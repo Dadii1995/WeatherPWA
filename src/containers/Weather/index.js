@@ -10,13 +10,14 @@ import CurrentWeatherDetails from './CurrentWeatherDetails'
 import LoadingSpinner from '../../components/LoadingSpinner'
 
 class Weather extends Component {
-  constructor(props) {
-    super(props)
-    props.getWeather()
+  componentDidMount() {
+    this.props.getWeather()
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.weatherLocation !== prevProps.weatherLocation) this.props.getWeather()
+    if (this.props.weatherLocation !== prevProps.weatherLocation) {
+      this.props.getWeather()
+    }
   }
   shouldComponentUpdate(nextProps) {
     return (
@@ -48,13 +49,13 @@ class Weather extends Component {
         ) : (
           <>
             <CurrentWeather />
-            <div className="weather__slider weather__slider--mobile">
+            <div className="weather__slider weather__slider -mobile">
               <Slider {...settings}>
                 <NextWeekWeather />
                 <CurrentWeatherDetails />
               </Slider>
             </div>
-            <div className="weather__slider weather__slider--md">
+            <div className="weather__slider weather__slider -md">
               <CurrentWeatherDetails />
               <NextWeekWeather />
             </div>
@@ -68,6 +69,9 @@ class Weather extends Component {
 Weather.propTypes = {
   isDay: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+  weatherLocation: PropTypes.string.isRequired,
+  getWeather: PropTypes.func.isRequired,
 }
 
 export default Weather

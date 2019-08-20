@@ -26,16 +26,22 @@ $max-weather-icon-height: 32px;
   width: 100vw;
 
   &__current {
-    background-position: right top;
-    background-repeat: no-repeat;
+    background: {
+      position: right top;
+      repeat: no-repeat;
+    };
+    padding: {
+      bottom: $m-md;
+      top: $m-md;
+    };
     flex-grow: 1;
-    padding-bottom: $m-md;
-    padding-top: $m-md;
     text-align: center !important;
 
     &__temperature {
-      font-size: $font-size-xxl;
-      font-weight: $font-weight-regular;
+      font: {
+        size: $font-size-xxl;
+        weight: $font-weight-regular;
+      };
       margin: $m-sm;
     }
 
@@ -65,15 +71,17 @@ $max-weather-icon-height: 32px;
 
   &__slider {
     background: $color-white;
-    border-top-left-radius: $border-radius-lg*1.5;
-    border-top-right-radius: $border-radius-lg*1.5;
     box-sizing: border-box;
     color: $color-black !important;
     flex-grow: 1;
     padding: $m-md;
     width: 100%;
+    border: {
+      top-left-radius:$border-radius-lg*1.5;
+      top-right-radius:$border-radius-lg*1.5;
+    };
 
-    &--md {
+    &.-md {
       display: none;
     }
   }
@@ -107,8 +115,10 @@ $max-weather-icon-height: 32px;
   }
 
   &__days {
-    border-collapse: separate;
-    border-spacing: 0;
+    border: {
+      collapse: separate;
+      spacing: 0;
+    };
     width: 100%;
   }
 
@@ -186,17 +196,19 @@ $max-weather-icon-height: 32px;
   .weather {
     &__current {
       display: flex;
-      flex-direction: column;
-      flex-grow: 3;
       justify-content: center;
+      flex: {
+        direction: column;
+        grow: 3;
+      };
     }
 
     &__slider {
-      &--mobile {
+      &.-mobile {
         display: none;
       }
 
-      &--md {
+      &.-md {
         align-items: center;
         display: flex;
         flex-grow: 1;
@@ -217,14 +229,15 @@ $max-weather-icon-height: 32px;
     }
 
     &__slider {
-      border-bottom-left-radius: $border-radius-lg*1.5;
-      border-top-right-radius: 0;
+      border: {
+        bottom-left-radius: $border-radius-lg * 1.5;
+        top-right-radius: 0;
+      };
 
-      &--md {
+      &.-md {
         flex-direction: column;
         height: 100%;
       }
-
     }
   }
 

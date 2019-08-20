@@ -1,0 +1,13 @@
+$icon-space: 16px;
+
+.set-location-button {
+  cursor: pointer;
+  left: $icon-space;
+  position: fixed;
+  top: $icon-space;
+  z-index: $z-high;
+
+  &.-night {
+    color: $color-white;
+  }
+}

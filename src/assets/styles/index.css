@@ -330,9 +330,9 @@ template {
   .weather__current {
     background-position: right top;
     background-repeat: no-repeat;
-    flex-grow: 1;
     padding-bottom: 15px;
     padding-top: 15px;
+    flex-grow: 1;
     text-align: center !important; }
     .weather__current__temperature {
       font-size: 72px;
@@ -355,14 +355,14 @@ template {
       justify-content: space-evenly; }
   .weather__slider {
     background: #FFFFFF;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
     box-sizing: border-box;
     color: #04080C !important;
     flex-grow: 1;
     padding: 15px;
-    width: 100%; }
-    .weather__slider--md {
+    width: 100%;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px; }
+    .weather__slider.-md {
       display: none; }
   .weather--day {
     background: #FDC6C6;
@@ -433,12 +433,12 @@ template {
 @media (min-width: 768px) {
   .weather__current {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    flex-grow: 3;
-    justify-content: center; }
-  .weather__slider--mobile {
+    flex-grow: 3; }
+  .weather__slider.-mobile {
     display: none; }
-  .weather__slider--md {
+  .weather__slider.-md {
     align-items: center;
     display: flex;
     flex-grow: 1;
@@ -454,7 +454,7 @@ template {
     .weather__slider {
       border-bottom-left-radius: 45px;
       border-top-right-radius: 0; }
-      .weather__slider--md {
+      .weather__slider.-md {
         flex-direction: column;
         height: 100%; }
   .weather-details,
@@ -462,8 +462,70 @@ template {
     width: 100%; } }
 
 .loading-spinner {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   height: 100%;
+  justify-content: center;
   width: 100%; }
+
+.modal {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  visibility: collapse;
+  width: 100vw;
+  z-index: 400; }
+  .modal.-visible {
+    visibility: visible; }
+  .modal__dialog {
+    background: #5BC0DE;
+    margin: 10px;
+    text-align: center;
+    border-color: #1f7e9a;
+    border-radius: 20px;
+    border-style: solid; }
+    .modal__dialog__content {
+      border-color: #85d0e7;
+      border-style: solid;
+      border-width: 1px 0; }
+    .modal__dialog__footer {
+      background: #31b0d5;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 10px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px; }
+    .modal__dialog__header {
+      background: #31b0d5;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 10px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      color: white; }
+      .modal__dialog__header h1 {
+        margin: 0; }
+  .modal .modal-button {
+    background: transparent;
+    color: #FFFFFF;
+    padding: 10px;
+    border-color: #FFFFFF;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px; }
+    .modal .modal-button:disabled {
+      opacity: .5; }
+    .modal .modal-button:hover {
+      background: #175b70; }
+
+.set-location-button {
+  cursor: pointer;
+  left: 16px;
+  position: fixed;
+  top: 16px;
+  z-index: 300; }
+  .set-location-button.-night {
+    color: #FFFFFF; }

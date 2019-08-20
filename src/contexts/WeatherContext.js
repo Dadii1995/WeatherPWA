@@ -9,8 +9,18 @@ class WeatherProvider extends Component {
   state = {
     weather: JSON.parse(localStorage.getItem('weather')) || {},
     isLoading: true,
+    error: undefined,
     weatherLocation: localStorage.getItem('weatherLocation') || 'Bielsko-Biała',
   }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    const shouldUpdate =
+      nextState.weatherLocation !== this.state.weatherLocation ||
+      this.state.error !== nextState.error ||
+      this.state.isLoading !== nextState.isLoading
+    return shouldUpdate
+  }
+
   setWeatherLocation = location => {
     localStorage.setItem('weatherLocation', location)
     this.setState(() => ({ weatherLocation: location }))
@@ -28,7 +38,7 @@ class WeatherProvider extends Component {
 
   getWeather = () => {
     this.setLoading(true)
-    this.setError('')
+    this.setError(undefined)
     axios
       .get(
         `http://api.apixu.com/v1/forecast.json?key=${process.env.REACT_APP_APIXU_API_KEY}&q=${

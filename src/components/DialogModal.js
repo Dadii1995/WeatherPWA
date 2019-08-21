@@ -34,6 +34,7 @@ const DialogModal = props => {
                   name="location"
                   onBlur={handleBlur}
                   onChange={handleChange}
+                  placeholder="Weather Location"
                   type="text"
                   value={values.location}
                 />

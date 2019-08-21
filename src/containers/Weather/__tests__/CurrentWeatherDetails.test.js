@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import CurrentWeatherDetails from '../Weather/CurrentWeatherDetails'
-import { WeatherContext } from '../../contexts/WeatherContext'
+import CurrentWeatherDetails from '../CurrentWeatherDetails'
+import { WeatherContext } from '../../../contexts/WeatherContext'
 import React from 'react'
 
-jest.mock('../Weather/WeatherDetailInfo', () => () => <div>WeatherDetailsInfo</div>)
+jest.mock('../WeatherDetailInfo', () => () => <div>WeatherDetailsInfo</div>)
 const contextValue = {
   weather: {
     current: { wind_kph: 12, pressure_mb: 1025, cloud: 2, feelslike_c: 23.4, uv: 5, humidity: 43 },

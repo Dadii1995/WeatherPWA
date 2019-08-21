@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import CurrentWeather from '../Weather/CurrentWeather'
-import { WeatherContext } from '../../contexts/WeatherContext'
+import CurrentWeather from '../CurrentWeather'
+import { WeatherContext } from '../../../contexts/WeatherContext'
 
-jest.mock('../Weather/NextHoursWeather', () => () => (
+jest.mock('../NextHoursWeather', () => () => (
   <div>Next Hours</div>
 ))
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import WeatherDetailsInfo from '../Weather/WeatherDetailInfo'
+import WeatherDetailsInfo from '../WeatherDetailInfo'
 
 const renderComponent = props => {
   return render(<WeatherDetailsInfo {...props} />)

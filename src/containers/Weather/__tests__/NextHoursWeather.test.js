@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import NextHoursWeather from '../Weather/NextHoursWeather'
+import NextHoursWeather from '../NextHoursWeather'
 
-jest.mock('../Weather/HourWeather', () => ({ hour, iconName, temperature }) => (
+jest.mock('../HourWeather', () => ({ hour, iconName, temperature }) => (
   <div>
     {hour}-{iconName}-{temperature}
   </div>

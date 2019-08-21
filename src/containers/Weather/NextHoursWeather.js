@@ -3,37 +3,10 @@ import PropTypes from 'prop-types'
 import HourWeather from './HourWeather'
 
 class NextHoursWeather extends Component {
-  nextHours = [
-    {
-      hour: new Date().getHours(),
-      iconName: 'temperature-high',
-      temperature: this.props.temperatureNow,
-    },
-    {
-      hour: new Date().getHours() + 1,
-      iconName: 'sun',
-      temperature: 25,
-    },
-    {
-      hour: new Date().getHours() + 2,
-      iconName: 'sun',
-      temperature: 28,
-    },
-    {
-      hour: new Date().getHours() + 3,
-      iconName: 'cloud-sun',
-      temperature: 25,
-    },
-    {
-      hour: new Date().getHours() + 4,
-      iconName: 'wind',
-      temperature: 23,
-    },
-  ]
   render() {
     return (
       <div className="weather__current__next-hours">
-        {this.nextHours.map((hour, i) => {
+        {this.props.nextHours.map((hour, i) => {
           return <HourWeather key={i} {...hour} />
         })}
       </div>
@@ -42,7 +15,12 @@ class NextHoursWeather extends Component {
 }
 
 NextHoursWeather.propTypes = {
-  temperatureNow: PropTypes.number.isRequired,
+  nextHours: PropTypes.arrayOf(
+    PropTypes.shape({
+      hour: PropTypes.number,
+      iconName: PropTypes.string,
+      temperature: PropTypes.number,
+    }),
+  ).isRequired,
 }
-
 export default NextHoursWeather

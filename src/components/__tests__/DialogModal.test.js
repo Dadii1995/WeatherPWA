@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent, wait } from '@testing-library/react'
-import DialogModal from '../components/DialogModal'
+import DialogModal from '../DialogModal'
 
 const renderComponent = props => {
   return render(<DialogModal {...props} />)

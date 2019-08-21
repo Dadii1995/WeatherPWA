@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import LoadingSpinner from '../components/LoadingSpinner'
+import LoadingSpinner from '../LoadingSpinner'
 
 const renderComponent = color => {
   return render(<LoadingSpinner color={color} />)

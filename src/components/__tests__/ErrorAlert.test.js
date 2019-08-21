@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import ErrorAlert from '../components/ErrorAlert'
+import ErrorAlert from '../ErrorAlert'
 
 const renderComponent = props => {
   return render(<ErrorAlert {...props} />)

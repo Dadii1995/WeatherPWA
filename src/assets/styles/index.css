@@ -529,3 +529,18 @@ template {
   z-index: 300; }
   .set-location-button.-night {
     color: #FFFFFF; }
+
+.error-alert {
+  background: #E62A2A;
+  color: #FFFFFF;
+  left: 50%;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-color: #981212;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  min-width: 30vw;
+  text-align: center; }

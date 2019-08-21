@@ -41,7 +41,7 @@ class WeatherProvider extends Component {
     this.setError(undefined)
     axios
       .get(
-        `http://api.apixu.com/v1/forecast.json?key=${process.env.REACT_APP_APIXU_API_KEY}&q=${
+        `https://api.apixu.com/v1/forecast.json?key=${process.env.REACT_APP_APIXU_API_KEY}&q=${
           this.state.weatherLocation
         }&days=7`,
       )
@@ -53,6 +53,7 @@ class WeatherProvider extends Component {
         console.error('APIXU Error', error)
         this.setError(error)
         this.setLoading(false)
+        console.log('Error set:', this.state.error)
       })
   }
 

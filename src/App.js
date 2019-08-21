@@ -63,19 +63,18 @@ class App extends Component {
       isGeolocationEnabled,
       coords,
       isLoading,
+      error,
     } = this.props
 
     if (isGeolocationAvailable && isGeolocationEnabled) {
       if (coords) {
         setWeatherLocation(`${coords.latitude},${coords.longitude}`)
       }
-    } else {
-      //this.showModal()
     }
 
     return (
       <>
-        <LocationButton onClick={this.showModal} isDay={isDay} />
+        <LocationButton isDay={isDay} onClick={this.showModal} />
         <DialogModal
           closeModal={this.closeModal}
           description="Geolocation is disabled or not supported in your browser. Write your location to see weather"
@@ -85,6 +84,7 @@ class App extends Component {
         />
 
         <Weather
+          error={error}
           getWeather={getWeather}
           isDay={isDay}
           isLoading={isLoading}

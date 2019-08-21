@@ -8,6 +8,7 @@ import CurrentWeather from './CurrentWeather'
 import NextWeekWeather from './NextWeekWeather'
 import CurrentWeatherDetails from './CurrentWeatherDetails'
 import LoadingSpinner from '../../components/LoadingSpinner'
+import ErrorAlert from '../../components/ErrorAlert'
 
 class Weather extends Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ class Weather extends Component {
     }
   }
   shouldComponentUpdate(nextProps) {
+    console.log('next',nextProps.error,'current',this.props.error)
     return (
       nextProps.weatherLocation !== this.props.weatherLocation ||
       nextProps.isLoading !== this.props.isLoading ||
@@ -46,6 +48,8 @@ class Weather extends Component {
       >
         {this.props.isLoading ? (
           <LoadingSpinner color={this.props.isDay ? '#000' : '#FFF'} />
+        ) : this.props.error ? (
+          <ErrorAlert errorMessage={this.props.error.toJSON().message} header={this.props.error.toJSON().name} />
         ) : (
           <>
             <CurrentWeather />

@@ -44,9 +44,6 @@ const CurrentWeatherDetails = props => {
 CurrentWeatherDetails.propTypes = {
   weather: PropTypes.shape({
     current: PropTypes.shape({
-      condition: PropTypes.shape({
-        text: PropTypes.string,
-      }).isRequired,
       wind_kph: PropTypes.number,
       pressure_mb: PropTypes.number,
       cloud: PropTypes.number,
@@ -57,10 +54,6 @@ CurrentWeatherDetails.propTypes = {
     forecast: PropTypes.shape({
       forecastday: PropTypes.arrayOf(
         PropTypes.shape({
-          day: PropTypes.shape({
-            maxtemp_c: PropTypes.number,
-            mintemp_c: PropTypes.number,
-          }).isRequired,
           astro: PropTypes.shape({
             sunrise: PropTypes.string,
             sunset: PropTypes.string,

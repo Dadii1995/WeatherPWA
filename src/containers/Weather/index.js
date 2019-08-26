@@ -4,11 +4,13 @@ import classNames from 'classnames'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+
 import CurrentWeather from './CurrentWeather'
 import NextWeekWeather from './NextWeekWeather'
 import CurrentWeatherDetails from './CurrentWeatherDetails'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
+import withWeather from '../../hocs/withWeather'
 
 class Weather extends Component {
   componentDidMount() {
@@ -21,7 +23,6 @@ class Weather extends Component {
     }
   }
   shouldComponentUpdate(nextProps) {
-    console.log('next',nextProps.error,'current',this.props.error)
     return (
       nextProps.weatherLocation !== this.props.weatherLocation ||
       nextProps.isLoading !== this.props.isLoading ||
@@ -45,11 +46,19 @@ class Weather extends Component {
           { 'weather--day': this.props.isDay },
           { 'weather--night': !this.props.isDay },
         )}
+        data-testid="weather-div"
       >
         {this.props.isLoading ? (
-          <LoadingSpinner color={this.props.isDay ? '#000' : '#FFF'} />
+          <LoadingSpinner
+            color={this.props.isDay ? '#000' : '#FFF'}
+            data-testid="loading-spinner"
+          />
         ) : this.props.error ? (
-          <ErrorAlert errorMessage={this.props.error.toJSON().message} header={this.props.error.toJSON().name} />
+          <ErrorAlert
+            data-testid="error-alert"
+            errorMessage={this.props.error.toJSON().message}
+            header={this.props.error.toJSON().name}
+          />
         ) : (
           <>
             <CurrentWeather />
@@ -78,4 +87,4 @@ Weather.propTypes = {
   getWeather: PropTypes.func.isRequired,
 }
 
-export default Weather
+export default withWeather(Weather)

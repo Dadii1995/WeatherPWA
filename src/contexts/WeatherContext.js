@@ -50,10 +50,8 @@ class WeatherProvider extends Component {
         this.setLoading(false)
       })
       .catch(error => {
-        console.error('APIXU Error', error)
         this.setError(error)
         this.setLoading(false)
-        console.log('Error set:', this.state.error)
       })
   }
 

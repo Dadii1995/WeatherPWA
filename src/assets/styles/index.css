@@ -486,11 +486,23 @@ template {
     text-align: center;
     border-color: #1f7e9a;
     border-radius: 20px;
-    border-style: solid; }
+    border-style: solid;
+    border-width: 4px; }
     .modal__dialog__content {
       border-color: #85d0e7;
       border-style: solid;
-      border-width: 1px 0; }
+      border-width: 2px 0;
+      padding: 15px; }
+      .modal__dialog__content input {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: 5px;
+        padding: 10px; }
+        .modal__dialog__content input:focus {
+          border-width: 2px;
+          border-color: #1f7e9a;
+          border-style: solid; }
     .modal__dialog__footer {
       background: #31b0d5;
       display: flex;

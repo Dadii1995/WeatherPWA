@@ -1,7 +1,7 @@
 $modal-shadow-opacity: .5;
 $modal-shadow-color: rgba(0, 0, 0, $modal-shadow-opacity);
-
-
+$modal-border-color: darken($brand-info, 25%);
+$modal-border-width: 4px;
 
 .modal {
   align-items: center;
@@ -23,17 +23,35 @@ $modal-shadow-color: rgba(0, 0, 0, $modal-shadow-opacity);
     margin: $m-sm;
     text-align: center;
     border: {
-      color: darken($brand-info, 25%);
+      color: $modal-border-color;
       radius: $border-radius-base;
       style: solid;
+      width: $modal-border-width;
     };
 
     &__content {
       border: {
         color: lighten($brand-info, 10%);
         style: solid;
-        width: 1px 0;
+        width: $modal-border-width/2 0;
       };
+      padding: $m-md;
+
+      input{
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: $border-radius-sm;
+        padding: $m-sm;
+
+        &:focus{
+          border: {
+            width: $modal-border-width/2;
+            color: $modal-border-color;
+            style: solid;
+          };
+        }
+      }
     }
 
     &__footer {

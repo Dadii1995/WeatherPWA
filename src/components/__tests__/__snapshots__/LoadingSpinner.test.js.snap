@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoadningSpinner/> render black spinner 1`] = `
+<div
+  class="loading-spinner"
+>
+  <div
+    class="css-1vsgq5g"
+  >
+    <div
+      class="css-1no20o0"
+    />
+    <div
+      class="css-u01n8e"
+    />
+    <div
+      class="css-hvkkom"
+    />
+    <div
+      class="css-4qvz6j"
+    />
+    <div
+      class="css-lk2aob"
+    />
+  </div>
+</div>
+`;
+
+exports[`<LoadningSpinner/> render white spinner 1`] = `
+<div
+  class="loading-spinner"
+>
+  <div
+    class="css-1vsgq5g"
+  >
+    <div
+      class="css-146hrkr"
+    />
+    <div
+      class="css-b676xh"
+    />
+    <div
+      class="css-aspt7i"
+    />
+    <div
+      class="css-1w28y4f"
+    />
+    <div
+      class="css-1hfeait"
+    />
+  </div>
+</div>
+`;

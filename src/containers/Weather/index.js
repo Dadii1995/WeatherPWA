@@ -9,6 +9,7 @@ import NextWeekWeather from './NextWeekWeather'
 import CurrentWeatherDetails from './CurrentWeatherDetails'
 import LoadingSpinner from '../../components/LoadingSpinner'
 import ErrorAlert from '../../components/ErrorAlert'
+import withWeather from '../../hocs/withWeather'
 
 class Weather extends Component {
   componentDidMount() {
@@ -49,6 +50,7 @@ class Weather extends Component {
           { 'weather--day': this.props.isDay },
           { 'weather--night': !this.props.isDay },
         )}
+        data-testId="weather-div"
       >
         {this.props.isLoading ? (
           <LoadingSpinner color={this.props.isDay ? '#000' : '#FFF'} />
@@ -56,19 +58,19 @@ class Weather extends Component {
           <>
             {this.props.error && (
               <ErrorAlert
-                refreshWeather={this.refreshWeather}
                 errorMessage={this.props.error.toJSON().message}
                 header={this.props.error.toJSON().name}
+                refreshWeather={this.refreshWeather}
               />
             )}
             <CurrentWeather />
-            <div className="weather__slider weather__slider -mobile">
+            <div className="weather__slider -mobile">
               <Slider {...settings}>
                 <NextWeekWeather />
                 <CurrentWeatherDetails />
               </Slider>
             </div>
-            <div className="weather__slider weather__slider -md">
+            <div className="weather__slider -md">
               <CurrentWeatherDetails />
               <NextWeekWeather />
             </div>
@@ -87,4 +89,4 @@ Weather.propTypes = {
   getWeather: PropTypes.func.isRequired,
 }
 
-export default Weather
+export default withWeather(Weather)

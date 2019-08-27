@@ -16,7 +16,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 import './assets/styles/index.css'
-import { geolocated } from 'react-geolocated'
 
 import Weather from './containers/Weather'
 import withWeather from './hocs/withWeather'
@@ -53,24 +52,20 @@ class App extends Component {
     this.closeModal()
   }
 
-  render() {
-    const {
-      isDay,
-      weatherLocation,
-      getWeather,
-      setWeatherLocation,
-      isGeolocationAvailable,
-      isGeolocationEnabled,
-      coords,
-      isLoading,
-      error,
-    } = this.props
-
-    if (isGeolocationAvailable && isGeolocationEnabled) {
-      if (coords) {
-        setWeatherLocation(`${coords.latitude},${coords.longitude}`)
-      }
+  getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+        this.setWeatherLocation(`${latitude},${longitude}`)
+      })
     }
+  }
+
+  componentDidMount() {
+    this.getLocation()
+  }
+
+  render() {
+    const { isDay } = this.props
 
     return (
       <>
@@ -82,35 +77,13 @@ class App extends Component {
           isVisible={this.state.isModalVisible}
           setLocation={this.setWeatherLocation}
         />
-
-        <Weather
-          error={error}
-          getWeather={getWeather}
-          isDay={isDay}
-          isLoading={isLoading}
-          weatherLocation={weatherLocation}
-        />
+        <Weather />
       </>
     )
   }
 }
 App.propTypes = {
   isDay: PropTypes.bool.isRequired,
-  error: PropTypes.object,
-  isLoading: PropTypes.bool.isRequired,
-  weatherLocation: PropTypes.string.isRequired,
-  getWeather: PropTypes.func.isRequired,
   setWeatherLocation: PropTypes.func,
-  isGeolocationAvailable: PropTypes.bool,
-  isGeolocationEnabled: PropTypes.bool,
-  coords: PropTypes.shape({
-    latitude: PropTypes.number,
-    longitude: PropTypes.number,
-  }),
 }
-export default geolocated({
-  positionOptions: {
-    enableHighAccuracy: true,
-  },
-  userDecisionTimeout: 5000,
-})(withWeather(App))
+export default withWeather(App)

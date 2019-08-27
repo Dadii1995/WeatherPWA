@@ -22,6 +22,7 @@ class WeatherProvider extends Component {
   }
 
   setWeatherLocation = location => {
+    console.log("Set:", location)
     localStorage.setItem('weatherLocation', location)
     this.setState(() => ({ weatherLocation: location }))
   }

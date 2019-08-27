@@ -4,11 +4,16 @@ exports[`<ErrorAlert/> render Error alert 1`] = `
 <div
   class="error-alert"
 >
-  <h1>
+  <p>
     header
-  </h1>
+  </p>
   <p>
     Error Message
   </p>
+  <button
+    class="modal-button"
+  >
+    Refresh
+  </button>
 </div>
 `;

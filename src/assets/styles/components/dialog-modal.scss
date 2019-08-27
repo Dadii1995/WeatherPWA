@@ -1,0 +1,90 @@
+$modal-shadow-opacity: .5;
+$modal-shadow-color: rgba(0, 0, 0, $modal-shadow-opacity);
+$modal-border-color: darken($brand-info, 25%);
+$modal-border-width: 4px;
+
+.modal {
+  align-items: center;
+  background: $modal-shadow-color;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  visibility: collapse;
+  width: 100vw;
+  z-index: $z-higher;
+
+  &.-visible {
+    visibility: visible;
+  }
+
+  &__dialog {
+    background: $brand-info;
+    margin: $m-sm;
+    text-align: center;
+    border: {
+      color: $modal-border-color;
+      radius: $border-radius-base;
+      style: solid;
+      width: $modal-border-width;
+    };
+
+    &__content {
+      border: {
+        color: lighten($brand-info, 10%);
+        style: solid;
+        width: $modal-border-width/2 0;
+      };
+      padding: $m-md;
+
+      input{
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        border-radius: $border-radius-sm;
+        padding: $m-sm;
+
+        &:focus{
+          border: {
+            width: $modal-border-width/2;
+            color: $modal-border-color;
+            style: solid;
+          };
+        }
+      }
+    }
+
+    &__footer {
+      @include modal-section(bottom, $brand-info)
+    }
+
+    &__header {
+      @include modal-section(top, $brand-info)
+        color: white;
+
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+
+  .modal-button {
+    background: transparent;
+    color: $color-white;
+    padding: $m-sm;
+    border: {
+      color: $color-white;
+      radius: $border-radius-sm;
+      style: solid;
+      width: 1px;
+    }
+
+    &:disabled {
+      opacity: .5;
+    };
+
+    &:hover {
+      background: darken($brand-info, 35%);
+    }
+  }
+}

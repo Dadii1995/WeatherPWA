@@ -1,0 +1,20 @@
+$border-width: 2px;
+$min-width: 30vw;
+
+.error-alert {
+  background: $brand-danger;
+  color: $color-white;
+  left: 50%;
+  padding: $m-md;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: {
+    color: darken($brand-danger, 20%);
+    radius: $border-radius-base;
+    style: solid;
+    width: $border-width;
+  };
+  min-width: $min-width;
+  text-align: center;
+}

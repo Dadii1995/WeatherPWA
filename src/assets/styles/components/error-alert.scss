@@ -1,20 +1,51 @@
 $border-width: 2px;
-$min-width: 30vw;
+$modal-opacity: .9;
 
 .error-alert {
   background: $brand-danger;
+  bottom: $m-lg;
+  box-sizing: border-box;
   color: $color-white;
   left: 50%;
-  padding: $m-md;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  opacity: $modal-opacity;
+  padding: $m-sm;
+  position: fixed;
+  text-align: center;
+  transform: translate(-50%, 0);
+  width: 100%;
+  z-index: $z-high;
   border: {
     color: darken($brand-danger, 20%);
     radius: $border-radius-base;
     style: solid;
     width: $border-width;
   };
-  min-width: $min-width;
-  text-align: center;
+
+  .modal-button {
+    background: transparent;
+    color: $color-white;
+    padding: $m-sm;
+    border: {
+      color: $color-white;
+      radius: $border-radius-sm;
+      style: solid;
+      width: 1px;
+    }
+
+    &:hover {
+      background: darken($brand-danger, 25%);
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .error-alert {
+    bottom: auto;
+    max-width: 70%;
+    top: $m-lg;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .error-alert {
+    max-width: 50%;
+  }
 }

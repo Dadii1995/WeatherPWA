@@ -56,10 +56,14 @@ class App extends Component {
   render() {
     const {
       isDay,
+      weatherLocation,
+      getWeather,
       setWeatherLocation,
       isGeolocationAvailable,
       isGeolocationEnabled,
       coords,
+      isLoading,
+      error,
     } = this.props
 
     if (isGeolocationAvailable && isGeolocationEnabled) {
@@ -79,13 +83,23 @@ class App extends Component {
           setLocation={this.setWeatherLocation}
         />
 
-        <Weather />
+        <Weather
+          error={error}
+          getWeather={getWeather}
+          isDay={isDay}
+          isLoading={isLoading}
+          weatherLocation={weatherLocation}
+        />
       </>
     )
   }
 }
 App.propTypes = {
   isDay: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+  isLoading: PropTypes.bool.isRequired,
+  weatherLocation: PropTypes.string.isRequired,
+  getWeather: PropTypes.func.isRequired,
   setWeatherLocation: PropTypes.func,
   isGeolocationAvailable: PropTypes.bool,
   isGeolocationEnabled: PropTypes.bool,

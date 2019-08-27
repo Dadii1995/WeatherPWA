@@ -1,11 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ErrorAlert = ({ errorMessage, header }) => {
+const ErrorAlert = ({ errorMessage, header, refreshWeather }) => {
   return (
     <div className="error-alert">
-      <h1>{header}</h1>
+      <p>{header}</p>
       <p>{errorMessage}</p>
+      <button
+        className="modal-button"
+        onClick={() => {
+          refreshWeather()
+        }}
+      >
+        Refresh
+      </button>
     </div>
   )
 }

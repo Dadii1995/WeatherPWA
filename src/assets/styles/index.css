@@ -532,15 +532,38 @@ template {
 
 .error-alert {
   background: #E62A2A;
+  bottom: 30px;
+  box-sizing: border-box;
   color: #FFFFFF;
   left: 50%;
-  padding: 15px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  padding: 10px;
+  position: fixed;
+  text-align: center;
+  transform: translate(-50%, 0);
+  width: 100%;
+  z-index: 300;
   border-color: #981212;
   border-radius: 20px;
   border-style: solid;
-  border-width: 2px;
-  min-width: 30vw;
-  text-align: center; }
+  border-width: 2px; }
+  .error-alert .modal-button {
+    background: transparent;
+    color: #FFFFFF;
+    padding: 10px;
+    border-color: #FFFFFF;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px; }
+    .error-alert .modal-button:hover {
+      background: #810f0f; }
+
+@media (min-width: 768px) {
+  .error-alert {
+    bottom: auto;
+    max-width: 70%;
+    top: 30px; } }
+
+@media (min-width: 992px) {
+  .error-alert {
+    max-width: 50%; } }

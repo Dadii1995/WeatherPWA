@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WeatherDetailsInfo/> render detailsInfo with number value 1`] = `
+<div>
+  <div
+    class="weather-details-info"
+  >
+    <p
+      class="weather-details-info__value"
+    >
+      15
+    </p>
+    <p
+      class="weather-details-info__label"
+    >
+      Label
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<WeatherDetailsInfo/> render detailsInfo with string value 1`] = `
+<div>
+  <div
+    class="weather-details-info"
+  >
+    <p
+      class="weather-details-info__value"
+    >
+      Value
+    </p>
+    <p
+      class="weather-details-info__label"
+    >
+      Label
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<WeatherDetailsInfo/> render detailsInfo with unit 1`] = `
+<div>
+  <div
+    class="weather-details-info"
+  >
+    <p
+      class="weather-details-info__value"
+    >
+      Value
+      Unit
+    </p>
+    <p
+      class="weather-details-info__label"
+    >
+      Label
+    </p>
+  </div>
+</div>
+`;

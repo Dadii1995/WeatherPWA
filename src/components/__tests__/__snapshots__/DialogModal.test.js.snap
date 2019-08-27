@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DialogModal/> render DialogModal with header and decription 1`] = `
+<div
+  class="modal -visible"
+>
+  <div
+    class="modal__dialog"
+  >
+    <div
+      class="modal__dialog__header"
+    >
+      <h1>
+        header
+      </h1>
+    </div>
+    <form>
+      <div
+        class="modal__dialog__content"
+      >
+        <p />
+        <input
+          name="location"
+          placeholder="Weather Location"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="modal__dialog__footer"
+      >
+        <button
+          class="modal-button"
+          type="submit"
+        >
+          Set
+        </button>
+        <button
+          class="modal-button"
+        >
+          Close
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<DialogModal/> render DialogModal without -visible classname 1`] = `
+<div
+  class="modal"
+>
+  <div
+    class="modal__dialog"
+  >
+    <div
+      class="modal__dialog__header"
+    >
+      <h1>
+        header
+      </h1>
+    </div>
+    <form>
+      <div
+        class="modal__dialog__content"
+      >
+        <p />
+        <input
+          name="location"
+          placeholder="Weather Location"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="modal__dialog__footer"
+      >
+        <button
+          class="modal-button"
+          type="submit"
+        >
+          Set
+        </button>
+        <button
+          class="modal-button"
+        >
+          Close
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

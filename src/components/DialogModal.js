@@ -30,14 +30,17 @@ const DialogModal = props => {
             <form onSubmit={handleSubmit}>
               <div className="modal__dialog__content">
                 <p>{props.description}</p>
-                <input
-                  name="location"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  placeholder="Weather Location"
-                  type="text"
-                  value={values.location}
-                />
+                <label>
+                  Localization:
+                  <input
+                    name="location"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="Weather Location"
+                    type="text"
+                    value={values.location}
+                  />
+                </label>
                 {errors.location && touched.location && errors.location}
               </div>
               <div className="modal__dialog__footer">

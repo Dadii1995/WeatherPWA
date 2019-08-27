@@ -21,12 +21,12 @@ const CurrentWeatherDetails = props => {
       <h1>Details</h1>
       <div className="weather-details__sunrise-sunset">
         <div className="weather-details__sunrise-sunset__hour">
-          <img alt="sunrise icon" height="24px" src="/images/sunrise.png" />
+          <img alt="sunrise icon" height="24px" src="/images/sunrise.png" width="24px" />
           <span>{sunrise}</span>
         </div>
         <div className="weather-details__sunrise-sunset__hour">
           <span>{sunset}</span>
-          <img alt="sunset icon" height="24px" src="/images/sunset.png" />
+          <img alt="sunset icon" height="24px" src="/images/sunset.png" width="24px" />
         </div>
       </div>
       <div className="weather-details-info-box">

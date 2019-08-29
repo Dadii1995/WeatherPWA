@@ -1,10 +1,13 @@
 $modal-shadow-opacity: .5;
 $modal-shadow-color: rgba(0, 0, 0, $modal-shadow-opacity);
+$set-button-height: 32px;
+
 
 .modal {
   align-items: center;
   background: $modal-shadow-color;
   display: flex;
+  font-family: $font-family-body;
   height: 100vh;
   justify-content: center;
   position: fixed;
@@ -16,55 +19,62 @@ $modal-shadow-color: rgba(0, 0, 0, $modal-shadow-opacity);
     visibility: visible;
   }
 
-  &__dialog {
-    background: $brand-info;
-    margin: $m-sm;
+  &__description {
     text-align: center;
-    border: {
-      color: darken($brand-info, 25%);
-      radius: $border-radius-base;
-      style: solid;
-    };
+  }
 
-    &__content {
-      border: {
-        color: lighten($brand-info, 10%);
-        style: solid;
-        width: 1px 0;
-      };
-    }
+  &__dialog {
+    background: $color-white;
+    border-radius: $set-button-height/2;
+    max-width: 350px;
+    padding: $m-sm;
+    position: relative;
 
-    &__footer {
-      @include modal-section(bottom, $brand-info)
-    }
-
-    &__header {
-      @include modal-section(top, $brand-info)
-        color: white;
-
-      h1 {
-        margin: 0;
-      }
+    h1 {
+      margin: 0;
     }
   }
 
-  .modal-button {
-    background: transparent;
-    color: $color-white;
-    padding: $m-sm;
-    border: {
-      color: $color-white;
-      radius: $border-radius-sm;
-      style: solid;
-      width: 1px;
+  &__input {
+    text-align: center;
+
+    label {
+      display: block;
     }
+
+    input {
+      text-align: center;
+    }
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: $m-md;
+    top: $m-md;
+  }
+
+  .set-button {
+    background: linear-gradient(90deg, $sunset-background-start-color 0%, $sunset-background-end-color 100%);
+    border: none;
+    border-radius: $set-button-height/2;
+    color: $color-white;
+    cursor: pointer;
+    display: block;
+    font-weight: $font-weight-bold;
+    height: $set-button-height;
+    margin: $m-md auto 0;
+    padding: 0 10%;
+    text-transform: uppercase;
 
     &:disabled {
       opacity: .5;
     };
 
     &:hover {
-      background: darken($brand-info, 35%);
+      background: linear-gradient(90deg, darken($sunset-background-start-color, 15%) 0%, darken($sunset-background-end-color, 15%) 100%);
     }
   }
 }

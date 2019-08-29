@@ -8,6 +8,7 @@ import {
   faWind,
   faSun,
   faTemperatureHigh,
+    faTimes,
   faCloudRain,
   faCloudSun,
   faMoon,
@@ -28,6 +29,7 @@ class App extends Component {
     library.add(
       faAngleLeft,
       faAngleRight,
+      faTimes,
       faCloud,
       faWind,
       faSun,

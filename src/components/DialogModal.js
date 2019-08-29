@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const validationSchema = Yup.object().shape({
   location: Yup.string().required('Required'),
@@ -23,15 +24,19 @@ const DialogModal = props => {
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
           <div className="modal__dialog">
-            <div className="modal__dialog__header">
-              <h1>{props.header}</h1>
-            </div>
+            <button className="close-button" onClick={props.closeModal}>
+              <FontAwesomeIcon icon="times" size="lg" />
+            </button>
 
+            <h1>{props.header}</h1>
             <form onSubmit={handleSubmit}>
-              <div className="modal__dialog__content">
+              <div className="modal__description">
                 <p>{props.description}</p>
-                <label>
+              </div>
+              <div className="modal__input">
+                <label htmlFor="location">
                   Localization:
+                </label>
                   <input
                     name="location"
                     onBlur={handleBlur}
@@ -40,17 +45,11 @@ const DialogModal = props => {
                     type="text"
                     value={values.location}
                   />
-                </label>
                 {errors.location && touched.location && errors.location}
               </div>
-              <div className="modal__dialog__footer">
-                <button className="modal-button" disabled={isSubmitting} type="submit">
-                  Set
-                </button>
-                <button className="modal-button" onClick={props.closeModal}>
-                  Close
-                </button>
-              </div>
+              <button className="set-button" disabled={isSubmitting} type="submit">
+                Set
+              </button>
             </form>
           </div>
         )}

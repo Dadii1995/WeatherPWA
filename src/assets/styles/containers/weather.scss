@@ -137,12 +137,12 @@ $max-weather-icon-height: 32px;
 
   &__day {
     &__date {
-      width: 100%;
       color: $color-gray-dark;
+      width: 50%;
     }
 
     &__icon {
-
+      width: 50%;
       img {
         margin: 0 auto;
         max-height: $max-weather-icon-height;
@@ -221,6 +221,10 @@ $max-weather-icon-height: 32px;
     }
 
     &__slider {
+      padding: {
+        left: $m-md;
+        right: $m-md;
+      };
       &.-mobile {
         display: none;
       }
@@ -228,7 +232,6 @@ $max-weather-icon-height: 32px;
       &.-md {
         align-items: center;
         display: flex;
-        flex-grow: 1;
         height: auto;
         justify-content: space-evenly;
       }

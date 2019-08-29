@@ -508,7 +508,12 @@ template {
     .modal__input label {
       display: block; }
     .modal__input input {
-      text-align: center; }
+      text-align: center;
+      border-color: #9AA8EC;
+      border-style: solid;
+      border-width: 2px; }
+      .modal__input input:focus {
+        border-color: #A98CEA; }
   .modal .close-button {
     background: none;
     border: none;

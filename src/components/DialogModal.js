@@ -34,17 +34,15 @@ const DialogModal = props => {
                 <p>{props.description}</p>
               </div>
               <div className="modal__input">
-                <label htmlFor="location">
-                  Localization:
-                </label>
-                  <input
-                    name="location"
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    placeholder="Weather Location"
-                    type="text"
-                    value={values.location}
-                  />
+                <label htmlFor="location">Localization:</label>
+                <input
+                  name="location"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="Weather Location"
+                  type="text"
+                  value={values.location}
+                />
                 {errors.location && touched.location && errors.location}
               </div>
               <button className="set-button" disabled={isSubmitting} type="submit">

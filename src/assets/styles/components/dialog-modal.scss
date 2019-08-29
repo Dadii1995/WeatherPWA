@@ -44,6 +44,15 @@ $set-button-height: 32px;
 
     input {
       text-align: center;
+      border: {
+        color: $sunset-background-start-color;
+        style: solid;
+        width: 2px;
+      }
+
+      &:focus {
+        border-color: $sunset-background-end-color;
+      }
     }
   }
 

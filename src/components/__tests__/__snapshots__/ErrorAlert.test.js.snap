@@ -2,18 +2,31 @@
 
 exports[`<ErrorAlert/> render Error alert 1`] = `
 <div
-  class="error-alert"
+  class="modal -visible"
 >
-  <p>
-    header
-  </p>
-  <p>
-    Error Message
-  </p>
-  <button
-    class="modal-button"
+  <div
+    class="modal__dialog"
   >
-    Refresh
-  </button>
+    <button
+      class="close-button"
+      data-testid="close-button"
+    />
+    <h1>
+      header
+    </h1>
+    <div
+      class="modal__description"
+    >
+      <p>
+        Error Message
+      </p>
+    </div>
+    <button
+      class="set-button"
+      data-testid="refresh-button"
+    >
+      Refresh
+    </button>
+  </div>
 </div>
 `;

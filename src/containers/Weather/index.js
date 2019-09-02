@@ -12,8 +12,12 @@ import ErrorAlert from '../../components/ErrorAlert'
 import withWeather from '../../hocs/withWeather'
 
 class Weather extends Component {
+  state = {}
   componentDidMount() {
     this.props.getWeather()
+    this.setState(() => ({
+      isErrorVisible: true,
+    }))
   }
 
   componentDidUpdate(prevProps) {
@@ -26,12 +30,16 @@ class Weather extends Component {
     return (
       nextProps.weatherLocation !== this.props.weatherLocation ||
       nextProps.isLoading !== this.props.isLoading ||
-      nextProps.error !== this.props.error
+      nextProps.error !== this.props.error ||
+      this.state.isErrorVisible !== nextState.isErrorVisible
     )
   }
 
   refreshWeather = () => {
     this.props.getWeather()
+  }
+  closeErrorModal = () => {
+    this.setState(() => ({ isErrorVisible: false }))
   }
 
   render() {
@@ -58,8 +66,10 @@ class Weather extends Component {
           <>
             {this.props.error && (
               <ErrorAlert
+                closeModal={this.closeErrorModal}
                 errorMessage={this.props.error.toJSON().message}
                 header={this.props.error.toJSON().name}
+                isVisible={this.state.isErrorVisible && this.props.error}
                 refreshWeather={this.refreshWeather}
               />
             )}

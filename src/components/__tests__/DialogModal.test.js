@@ -22,8 +22,8 @@ describe('<DialogModal/>', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
   it('click close button on modal', () => {
-    const { getByText } = renderComponent(props)
-    fireEvent.click(getByText('Close'))
+    const { getByTestId } = renderComponent(props)
+    fireEvent.click(getByTestId('close-button'))
 
     expect(props.closeModal).toHaveBeenCalled()
   })

@@ -7,18 +7,27 @@ exports[`<DialogModal/> render DialogModal with header and decription 1`] = `
   <div
     class="modal__dialog"
   >
-    <div
-      class="modal__dialog__header"
-    >
-      <h1>
-        header
-      </h1>
-    </div>
+    <button
+      class="close-button"
+      data-testid="close-button"
+    />
+    <h1>
+      header
+    </h1>
     <form>
       <div
-        class="modal__dialog__content"
+        class="modal__description"
       >
         <p />
+      </div>
+      <div
+        class="modal__input"
+      >
+        <label
+          for="location"
+        >
+          Localization:
+        </label>
         <input
           name="location"
           placeholder="Weather Location"
@@ -26,21 +35,12 @@ exports[`<DialogModal/> render DialogModal with header and decription 1`] = `
           value=""
         />
       </div>
-      <div
-        class="modal__dialog__footer"
+      <button
+        class="set-button"
+        type="submit"
       >
-        <button
-          class="modal-button"
-          type="submit"
-        >
-          Set
-        </button>
-        <button
-          class="modal-button"
-        >
-          Close
-        </button>
-      </div>
+        Set
+      </button>
     </form>
   </div>
 </div>
@@ -53,18 +53,27 @@ exports[`<DialogModal/> render DialogModal without -visible classname 1`] = `
   <div
     class="modal__dialog"
   >
-    <div
-      class="modal__dialog__header"
-    >
-      <h1>
-        header
-      </h1>
-    </div>
+    <button
+      class="close-button"
+      data-testid="close-button"
+    />
+    <h1>
+      header
+    </h1>
     <form>
       <div
-        class="modal__dialog__content"
+        class="modal__description"
       >
         <p />
+      </div>
+      <div
+        class="modal__input"
+      >
+        <label
+          for="location"
+        >
+          Localization:
+        </label>
         <input
           name="location"
           placeholder="Weather Location"
@@ -72,21 +81,12 @@ exports[`<DialogModal/> render DialogModal without -visible classname 1`] = `
           value=""
         />
       </div>
-      <div
-        class="modal__dialog__footer"
+      <button
+        class="set-button"
+        type="submit"
       >
-        <button
-          class="modal-button"
-          type="submit"
-        >
-          Set
-        </button>
-        <button
-          class="modal-button"
-        >
-          Close
-        </button>
-      </div>
+        Set
+      </button>
     </form>
   </div>
 </div>

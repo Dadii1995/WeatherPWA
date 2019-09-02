@@ -9,14 +9,14 @@ const validationSchema = Yup.object().shape({
   location: Yup.string().required('Required'),
 })
 
-const DialogModal = props => {
+const DialogModal = ({ isVisible, setLocation, closeModal, header, description }) => {
   return (
-    <div className={classNames('modal', { '-visible': props.isVisible })}>
+    <div className={classNames('modal', { '-visible': isVisible })}>
       <Formik
         initialValues={{ location: localStorage.getItem('weatherLocation') }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            props.setLocation(values.location)
+            setLocation(values.location)
             setSubmitting(false)
           }, 400)
         }}
@@ -24,14 +24,14 @@ const DialogModal = props => {
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
           <div className="modal__dialog">
-            <button className="close-button" onClick={props.closeModal}>
+            <button className="close-button" data-testid="close-button" onClick={closeModal}>
               <FontAwesomeIcon icon="times" size="lg" />
             </button>
 
-            <h1>{props.header}</h1>
+            <h1>{header}</h1>
             <form onSubmit={handleSubmit}>
               <div className="modal__description">
-                <p>{props.description}</p>
+                <p>{description}</p>
               </div>
               <div className="modal__input">
                 <label htmlFor="location">Localization:</label>

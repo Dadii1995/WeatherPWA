@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationButton/> render LocationButton 1`] = `
+<p
+  class="set-location-button"
+>
+  Icon
+</p>
+`;
+
+exports[`<LocationButton/> render night LocationButton 1`] = `
+<p
+  class="set-location-button -night"
+>
+  Icon
+</p>
+`;

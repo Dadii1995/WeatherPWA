@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorAlert/> render Error alert 1`] = `
+<div
+  class="modal -visible"
+>
+  <div
+    class="modal__dialog"
+  >
+    <button
+      class="close-button"
+      data-testid="close-button"
+    />
+    <h1>
+      header
+    </h1>
+    <div
+      class="modal__description"
+    >
+      <p>
+        Error Message
+      </p>
+    </div>
+    <button
+      class="set-button"
+      data-testid="refresh-button"
+    >
+      Refresh
+    </button>
+  </div>
+</div>
+`;

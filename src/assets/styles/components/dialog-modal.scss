@@ -1,0 +1,89 @@
+$modal-shadow-opacity: .5;
+$modal-shadow-color: rgba(0, 0, 0, $modal-shadow-opacity);
+$set-button-height: 32px;
+
+
+.modal {
+  align-items: center;
+  background: $modal-shadow-color;
+  display: flex;
+  font-family: $font-family-body;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  visibility: collapse;
+  width: 100vw;
+  z-index: $z-higher;
+
+  &.-visible {
+    visibility: visible;
+  }
+
+  &__description {
+    text-align: center;
+  }
+
+  &__dialog {
+    background: $color-white;
+    border-radius: $set-button-height/2;
+    max-width: 350px;
+    padding: $m-sm;
+    position: relative;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  &__input {
+    text-align: center;
+
+    label {
+      display: block;
+    }
+
+    input {
+      text-align: center;
+      border: {
+        color: $sunset-background-start-color;
+        style: solid;
+        width: 2px;
+      }
+
+      &:focus {
+        border-color: $sunset-background-end-color;
+      }
+    }
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: $m-md;
+    top: $m-md;
+  }
+
+  .set-button {
+    background: linear-gradient(90deg, $sunset-background-start-color 0%, $sunset-background-end-color 100%);
+    border: none;
+    border-radius: $set-button-height/2;
+    color: $color-white;
+    cursor: pointer;
+    display: block;
+    font-weight: $font-weight-bold;
+    height: $set-button-height;
+    margin: $m-md auto 0;
+    padding: 0 10%;
+    text-transform: uppercase;
+
+    &:disabled {
+      opacity: .5;
+    };
+
+    &:hover {
+      background: linear-gradient(90deg, darken($sunset-background-start-color, 15%) 0%, darken($sunset-background-end-color, 15%) 100%);
+    }
+  }
+}

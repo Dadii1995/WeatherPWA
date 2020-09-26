@@ -16,7 +16,7 @@ class WeatherProvider extends Component {
     },
   }
 
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+  shouldComponentUpdate(nextProps, nextState) {
     const shouldUpdate =
       nextState.weatherLocation !== this.state.weatherLocation ||
       this.state.error !== nextState.error ||

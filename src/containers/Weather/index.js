@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { isEqual } from 'lodash'
 import classNames from 'classnames'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+
 import CurrentWeather from './CurrentWeather'
 import NextWeekWeather from './NextWeekWeather'
 import CurrentWeatherDetails from './CurrentWeatherDetails'
@@ -21,7 +23,7 @@ class Weather extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.weatherLocation !== prevProps.weatherLocation) {
+    if (!isEqual(this.props.weatherLocation, prevProps.weatherLocation)) {
       this.props.getWeather()
     }
   }
@@ -95,7 +97,10 @@ Weather.propTypes = {
   isDay: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.object,
-  weatherLocation: PropTypes.string.isRequired,
+  weatherLocation: PropTypes.shape({
+    lat: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    long: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  }).isRequired,
   getWeather: PropTypes.func.isRequired,
 }
 

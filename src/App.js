@@ -8,7 +8,7 @@ import {
   faWind,
   faSun,
   faTemperatureHigh,
-    faTimes,
+  faTimes,
   faCloudRain,
   faCloudSun,
   faMoon,
@@ -57,7 +57,7 @@ class App extends Component {
   getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-        this.setWeatherLocation(`${latitude},${longitude}`)
+        this.setWeatherLocation({ lat: latitude, long: longitude })
       })
     }
   }

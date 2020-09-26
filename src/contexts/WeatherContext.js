@@ -10,7 +10,10 @@ class WeatherProvider extends Component {
     weather: JSON.parse(localStorage.getItem('weather')) || {},
     isLoading: true,
     error: undefined,
-    weatherLocation: localStorage.getItem('weatherLocation') || 'Bielsko-Biała',
+    weatherLocation: JSON.parse(localStorage.getItem('weatherLocation')) || {
+      lat: 49.8223768,
+      long: 19.0583845,
+    },
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -22,8 +25,8 @@ class WeatherProvider extends Component {
   }
 
   setWeatherLocation = location => {
-    console.log("Set:", location)
-    localStorage.setItem('weatherLocation', location)
+    console.log('Set:', location)
+    localStorage.setItem('weatherLocation', JSON.stringify(location))
     this.setState(() => ({ weatherLocation: location }))
   }
   setLoading = isLoading => {
@@ -42,9 +45,9 @@ class WeatherProvider extends Component {
     this.setError(undefined)
     axios
       .get(
-        `https://api.apixu.com/v1/forecast.json?key=${process.env.REACT_APP_APIXU_API_KEY}&q=${
-          this.state.weatherLocation
-        }&days=7`,
+        `https://api.openweathermap.org/data/2.5/onecall?lat=49.8223768&lon=19.0583845&exclude=minutely,alerts&units=metric&appid=${
+          process.env.REACT_APP_WEATHER_API_KEY
+        }`,
       )
       .then(response => {
         this.setWeather(response.data)

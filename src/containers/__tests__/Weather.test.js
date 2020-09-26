@@ -296,7 +296,7 @@ describe('<Weather/>', () => {
     expect(getAllByText('CurrentWeatherDetails')).toHaveLength(4)
     expect(mockAxios.get).toHaveBeenCalledWith(
       `https://api.apixu.com/v1/forecast.json?key=${
-        process.env.REACT_APP_APIXU_API_KEY
+        process.env.REACT_APP_WEATHER_API_KEY
       }&q=Bielsko-Biała&days=7`,
     )
   })

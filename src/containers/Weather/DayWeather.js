@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const DayWeather = props => {
   const { date, icon, minTemp, maxTemp } = props
@@ -8,7 +9,7 @@ const DayWeather = props => {
     <tr className="weather-next-week__day">
       <td className="weather-next-week__day__date">{date}</td>
       <td className="weather-next-week__day__icon">
-        <img alt="weather-icon" src={icon} />
+        <FontAwesomeIcon icon={icon} size="lg" />
       </td>
       <td className="weather-next-week__day__max-temp">{maxTemp}°C</td>
       <td className="weather-next-week__day__min-temp">{minTemp}°C</td>

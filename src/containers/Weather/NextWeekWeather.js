@@ -4,20 +4,21 @@ import DayWeather from './DayWeather'
 import PropTypes from 'prop-types'
 
 class NextWeekWeather extends Component {
-  forecast = this.props.weather.forecast.forecastday.slice(1)
+  forecast = this.props.weather.daily
   render() {
+    console.log(this.forecast)
     return (
       <div className="weather-next-week">
         <h1>Next days</h1>
         <table className="weather-next-week__days">
           <tbody>
-            {this.forecast.map((day, i) => (
+            {this.forecast.map(({dt,temp:{min,max}}) => (
               <DayWeather
-                date={day.date}
-                icon={day.day.condition.icon}
-                key={i}
-                maxTemp={day.day.maxtemp_c}
-                minTemp={day.day.mintemp_c}
+                date={new Date(dt*1000).toLocaleDateString()}
+                icon='sun'
+                key={dt}
+                maxTemp={max}
+                minTemp={min}
               />
             ))}
           </tbody>

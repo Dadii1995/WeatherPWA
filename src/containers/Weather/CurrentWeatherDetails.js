@@ -6,13 +6,15 @@ import WeatherDetailsInfo from './WeatherDetailInfo'
 const CurrentWeatherDetails = props => {
   const {
     weather: {
-      current: { wind_kph, pressure_mb, cloud, feelslike_c, uv, humidity },
-      forecast: {
-        forecastday: [
-          {
-            astro: { sunrise, sunset },
-          },
-        ],
+      current: {
+        sunrise,
+        sunset,
+        wind_speed: wind_kph,
+        pressure: pressure_mb,
+        clouds: cloud,
+        feels_like: feelslike_c,
+        uvi: uv,
+        humidity,
       },
     },
   } = props
@@ -22,10 +24,10 @@ const CurrentWeatherDetails = props => {
       <div className="weather-details__sunrise-sunset">
         <div className="weather-details__sunrise-sunset__hour">
           <img alt="sunrise icon" height="24px" src="/images/sunrise.png" width="24px" />
-          <span>{sunrise}</span>
+          <span>{new Date(sunrise * 1000).toLocaleTimeString()}</span>
         </div>
         <div className="weather-details__sunrise-sunset__hour">
-          <span>{sunset}</span>
+          <span>{new Date(sunset * 1000).toLocaleTimeString()}</span>
           <img alt="sunset icon" height="24px" src="/images/sunset.png" width="24px" />
         </div>
       </div>
@@ -44,22 +46,14 @@ const CurrentWeatherDetails = props => {
 CurrentWeatherDetails.propTypes = {
   weather: PropTypes.shape({
     current: PropTypes.shape({
-      wind_kph: PropTypes.number,
-      pressure_mb: PropTypes.number,
-      cloud: PropTypes.number,
-      feelslike_c: PropTypes.number,
-      uv: PropTypes.number,
+      wind_speed: PropTypes.number,
+      pressure: PropTypes.number,
+      clouds: PropTypes.number,
+      feels_like: PropTypes.number,
+      uvi: PropTypes.number,
       humidity: PropTypes.number,
-    }).isRequired,
-    forecast: PropTypes.shape({
-      forecastday: PropTypes.arrayOf(
-        PropTypes.shape({
-          astro: PropTypes.shape({
-            sunrise: PropTypes.string,
-            sunset: PropTypes.string,
-          }).isRequired,
-        }),
-      ),
+      sunrise: PropTypes.number,
+      sunset: PropTypes.number,
     }).isRequired,
   }).isRequired,
 }

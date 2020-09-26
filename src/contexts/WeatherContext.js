@@ -68,7 +68,9 @@ class WeatherProvider extends Component {
           getWeather: this.getWeather,
           setWeatherLocation: this.setWeatherLocation,
           weatherLocation,
-          isDay: Boolean(weather.current && weather.current.is_day),
+          isDay: Boolean(
+            weather.current && weather.current.dt < weather.current.sunset && weather.current.dt > weather.current.sunrise,
+          ),
           isLoading,
           error,
         }}
